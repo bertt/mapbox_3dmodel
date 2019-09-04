@@ -7,6 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenerateGlTF", "GenerateGlT
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "doc", "doc", "{BE56BF06-B25E-4C19-97E9-E5D70D044FDE}"
 	ProjectSection(SolutionItems) = preProject
+		..\..\index.html = ..\..\index.html
 		..\..\README.md = ..\..\README.md
 	EndProjectSection
 EndProject

@@ -30,7 +30,11 @@ namespace GenerateGlTF
             var fc = JsonConvert.DeserializeObject<FeatureCollection>(json);
             Console.WriteLine("Features: " + fc.Features.Count);
 
-            var material = MaterialBuilder.CreateDefault();
+            var materialCache = new MaterialsCache();
+
+            var default_hex_color = "#bb3333";
+            var material = materialCache.GetMaterialBuilderByColor(default_hex_color);
+
             var mesh = VPOSNRM.CreateCompatibleMesh("shape");
 
             foreach (var f in fc.Features)
@@ -50,7 +54,7 @@ namespace GenerateGlTF
 
                 // Console.WriteLine(distance_longitude + ", " + distance_latitude);
 
-                var translate = Matrix4x4.CreateTranslation((float)distance_longitude, (float)z * -1, (float)distance_latitude);
+                var translate = Matrix4x4.CreateTranslation((float)distance_longitude, (float)z * -2, (float)distance_latitude);
                 mesh.AddSphere(material, 0.5f, translate);
             }
             var scene = new SceneBuilder();
