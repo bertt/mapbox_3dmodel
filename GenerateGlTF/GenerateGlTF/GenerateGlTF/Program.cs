@@ -7,7 +7,9 @@ using SharpGLTF.Geometry.VertexTypes;
 using SharpGLTF.Materials;
 using SharpGLTF.Scenes;
 using System;
+using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Numerics;
 
 namespace GenerateGlTF
@@ -19,6 +21,12 @@ namespace GenerateGlTF
 
         static void Main(string[] args)
         {
+            var c1 = Color.FromArgb(0, 0, 255);
+            var c2 = Color.FromArgb(255, 0, 0);
+            var colors = ColorRange.GetGradients(c1, c2, 10).ToList();
+            var max_amount = 50;
+            // var step = max_amount / colors.Count;
+
             var center_longitude = 4.941729;
             var center_latitude = 52.314286;
 
@@ -39,11 +47,12 @@ namespace GenerateGlTF
 
             foreach (var f in fc.Features)
             {
+                // Console.Write(".");
                 var z = Convert.ToDouble(f.Properties["z"]);
                 var timestamp = f.Properties["timestamp"];
-                var amount = f.Properties["amount"];
+                var amount = Convert.ToInt32(f.Properties["amount"]);
 
-                var point = (Point)f.Geometry;
+                var point = (GeoJSON.Net.Geometry.Point)f.Geometry;
                 var coords = point.Coordinates;
                 // Console.WriteLine(timestamp + ": " + coords.Longitude + ", " + coords.Latitude + ", " + z + ", " + amount);
 
@@ -51,6 +60,11 @@ namespace GenerateGlTF
                 distance_latitude = coords.Latitude < center_coordinate.Latitude ? distance_latitude * -1 : distance_latitude;
                 var distance_longitude = new GeoCoordinate(center_latitude, coords.Longitude).GetDistanceTo(center_coordinate);
                 distance_longitude = coords.Longitude < center_coordinate.Longitude ? distance_longitude * -1 : distance_longitude;
+
+                var color_index = (int)Math.Round((double)(amount * colors.Count / max_amount ));
+                var rgb = colors[color_index];
+                material = MaterialCreator.CreateMaterial(rgb.R, rgb.G, rgb.B);
+                Console.WriteLine(color_index + " , " + amount);
 
                 // Console.WriteLine(distance_longitude + ", " + distance_latitude);
 
