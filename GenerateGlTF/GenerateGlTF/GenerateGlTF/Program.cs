@@ -44,6 +44,8 @@ namespace GenerateGlTF
             var material = materialCache.GetMaterialBuilderByColor(default_hex_color);
 
             var mesh = VPOSNRM.CreateCompatibleMesh("shape");
+            //var mesh = new MeshBuilder<VertexPosition, VertexTexture1>("terrain");
+
 
             foreach (var f in fc.Features)
             {
@@ -69,7 +71,11 @@ namespace GenerateGlTF
                 // Console.WriteLine(distance_longitude + ", " + distance_latitude);
 
                 var translate = Matrix4x4.CreateTranslation((float)distance_longitude, (float)z * -2, (float)distance_latitude);
-                mesh.AddSphere(material, 0.5f, translate);
+                mesh.AddCube(material, translate);
+                //mesh.AddSphere(material, 0.5f, translate);
+                //mesh.UsePrimitive(material).AddQuadrangle(v1, v2, v3, v4);
+
+
             }
             var scene = new SceneBuilder();
             scene.AddMesh(mesh, Matrix4x4.Identity);
