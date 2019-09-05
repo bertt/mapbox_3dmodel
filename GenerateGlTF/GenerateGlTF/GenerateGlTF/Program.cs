@@ -1,10 +1,8 @@
 ﻿using GeoCoordinatePortable;
 using GeoJSON.Net.Feature;
-using GeoJSON.Net.Geometry;
 using Newtonsoft.Json;
 using SharpGLTF.Geometry;
 using SharpGLTF.Geometry.VertexTypes;
-using SharpGLTF.Materials;
 using SharpGLTF.Scenes;
 using System;
 using System.Drawing;
@@ -24,7 +22,7 @@ namespace GenerateGlTF
             var c1 = Color.FromArgb(0, 0, 255);
             var c2 = Color.FromArgb(255, 0, 0);
             var colors = ColorRange.GetGradients(c1, c2, 10).ToList();
-            var max_amount = 50;
+            var max_amount = 40;
             // var step = max_amount / colors.Count;
 
             var center_longitude = 4.941729;
@@ -70,7 +68,7 @@ namespace GenerateGlTF
 
                 // Console.WriteLine(distance_longitude + ", " + distance_latitude);
 
-                var translate = Matrix4x4.CreateTranslation((float)distance_longitude, (float)z * -2, (float)distance_latitude);
+                var translate = Matrix4x4.CreateTranslation((float)distance_longitude, (float)z * 2, (float)distance_latitude);
                 mesh.AddCube(material, translate);
                 //mesh.AddSphere(material, 0.5f, translate);
                 //mesh.UsePrimitive(material).AddQuadrangle(v1, v2, v3, v4);
@@ -79,7 +77,7 @@ namespace GenerateGlTF
             }
             var scene = new SceneBuilder();
             scene.AddMesh(mesh, Matrix4x4.Identity);
-            scene.ToSchema2().SaveGLB("sphere.glb");
+            scene.ToSchema2().SaveGLB("arena_Wifi.glb");
 
 
         }
