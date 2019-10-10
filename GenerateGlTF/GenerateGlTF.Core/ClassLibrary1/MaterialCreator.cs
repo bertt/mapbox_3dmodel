@@ -1,7 +1,7 @@
 ﻿using SharpGLTF.Materials;
 using System.Numerics;
 
-namespace GenerateGlTF
+namespace GenerateGlTF.Core
 {
     public class MaterialCreator
     {

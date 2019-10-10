@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="GeoCoordinate.NetCore" Version="1.0.0.1" />
+    <PackageReference Include="GeoJSON.Net" Version="1.1.73" />
+    <PackageReference Include="SharpGLTF.Toolkit" Version="1.0.0-alpha0013" />
+  </ItemGroup>
+
+</Project>

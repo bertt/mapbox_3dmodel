@@ -3,13 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29209.152
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenerateGlTF", "GenerateGlTF\GenerateGlTF.csproj", "{5D5F1D2F-85CC-4FBB-A45A-B07E9DEAE6BC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GenerateGlTF.Console", "GenerateGlTF\GenerateGlTF.Console.csproj", "{5D5F1D2F-85CC-4FBB-A45A-B07E9DEAE6BC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "doc", "doc", "{BE56BF06-B25E-4C19-97E9-E5D70D044FDE}"
 	ProjectSection(SolutionItems) = preProject
 		..\..\index.html = ..\..\index.html
 		..\..\README.md = ..\..\README.md
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenerateGlTF.Core", "..\GenerateGlTF.Core\ClassLibrary1\GenerateGlTF.Core.csproj", "{E1695153-67C5-4B17-ADE2-85B31B3403F2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenerateGlTF.Core.Tests", "..\GenerateGlTF.Core.Tests\GenerateGlTF.Core.Tests.csproj", "{9C103E52-D8DD-4320-ADB1-6B541FF1AD18}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{5D5F1D2F-85CC-4FBB-A45A-B07E9DEAE6BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5D5F1D2F-85CC-4FBB-A45A-B07E9DEAE6BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5D5F1D2F-85CC-4FBB-A45A-B07E9DEAE6BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1695153-67C5-4B17-ADE2-85B31B3403F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1695153-67C5-4B17-ADE2-85B31B3403F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1695153-67C5-4B17-ADE2-85B31B3403F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1695153-67C5-4B17-ADE2-85B31B3403F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C103E52-D8DD-4320-ADB1-6B541FF1AD18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C103E52-D8DD-4320-ADB1-6B541FF1AD18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C103E52-D8DD-4320-ADB1-6B541FF1AD18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C103E52-D8DD-4320-ADB1-6B541FF1AD18}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

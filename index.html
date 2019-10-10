@@ -26,6 +26,8 @@
     <script src="https://unpkg.com/three@0.106.2/examples/js/loaders/GLTFLoader.js"></script>
     <div id='map'></div>
     <script>
+        var customLayer;
+
         mapboxgl.accessToken = 'pk.eyJ1IjoiYmVydHQiLCJhIjoiaWFvN1Z4USJ9.k04Q6CVms4Gx7KDZxvAx2A';
         var map = window.map = new mapboxgl.Map({
             container: 'map',
@@ -60,7 +62,7 @@
         var THREE = window.THREE;
 
         // configuration of the custom layer for a 3D model per the CustomLayerInterface
-        var customLayer = {
+        customLayer = {
             id: '3d-model',
             type: 'custom',
             renderingMode: '3d',
@@ -79,7 +81,7 @@
 
                 // use the three.js GLTF loader to add the 3D model to the three.js scene
                 var loader = new THREE.GLTFLoader();
-                var url = 'https://docs.mapbox.com/mapbox-gl-js/assets/34M_17/34M_17.gltf';
+                // var url = 'https://docs.mapbox.com/mapbox-gl-js/assets/34M_17/34M_17.gltf';
                 url = 'arena_Wifi.glb';
 
                 loader.load(url, (function (gltf) {
@@ -119,6 +121,11 @@
         map.on('style.load', function () {
             map.addLayer(customLayer, 'waterway-label');
         });
+
+        var i = 0;
+        var timer = window.setInterval(function () {
+            alert("yo");
+        }, 3000);
     </script>
 </body>
 </html>

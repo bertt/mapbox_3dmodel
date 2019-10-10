@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Drawing;
 
-namespace GenerateGlTF
+namespace GenerateGlTF.Core
 {
     public static class ColorRange
     {

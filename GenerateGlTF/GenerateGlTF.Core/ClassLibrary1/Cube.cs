@@ -2,7 +2,7 @@
 using SharpGLTF.Geometry.VertexTypes;
 using System.Numerics;
 
-namespace GenerateGlTF
+namespace GenerateGlTF.Core
 {
     using VERTEX = VertexBuilder<VertexPositionNormal, VertexColor1Texture1, VertexEmpty>;
 
@@ -21,9 +21,6 @@ namespace GenerateGlTF
             _Size = new Vector3(width, height, length);
         }
 
-        #endregion
-
-        #region data
 
         private Vector3 _Size = Vector3.One;
 
